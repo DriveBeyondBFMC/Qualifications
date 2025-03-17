@@ -104,7 +104,7 @@ Description: This is a report article on the status of project qualification.
 # Task 5: Improved Lane Detection and Lane-Keeping Algorithm
 ## 📂 Project Directory Structure
 ```bash
-~/project-Qualifications-3/src/Task_5
+~/Qualification/src/Task_5
 ├── LaneDetection.py
 └── LaneKeeping.py
 └── config.ini
