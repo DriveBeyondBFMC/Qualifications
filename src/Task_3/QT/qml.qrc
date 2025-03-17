@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>CircularGaugeISpeedMeter.qml</file>
+        <file>DashboardSimluation.qml</file>
+        <file>VehicleConfiguration.qml</file>
+        <file>VehicleConfigModel.qml</file>
+        <file>Spefications.qml</file>
+        <file>ui/icon/plugin.png</file>
+        <file>ui/icon/left_arrow.png</file>
+        <file>ui/icon/right_arrow.png</file>
+        <file>ui/icon/power_plug.png</file>
+        <file>ui/icon/charging-station.png</file>
+        <file>ui/icon/celsius.png</file>
+        <file>ui/icon/headlight.png</file>
+        <file>ui/icon/headlight1.png</file>
+        <file>ui/icon/parking-lights.png</file>
+        <file>LightShowConfiguration.qml</file>
+        <file>ui/icon/sun.png</file>
+        <file>SafetySignModel.qml</file>
+        <file>SafetySignConfiguration.qml</file>
+        <file>ui/icon/seat.png</file>
+        <file>ui/icon/abs.png</file>
+        <file>ui/icon/parking-brake.png</file>
+        <file>ui/icon/windshield.png</file>
+        <file>CIrcularProgressBar.qml</file>
+        <file>LeftArrow.qml</file>
+        <file>RightArrow.qml</file>
+        <file>CIrcularProgressBarBattery.qml</file>
+        <file>ui/icon/road.png</file>
+        <file>ui/icon/fuel-station.png</file>
+        <file>ui/icon/temperature.png</file>
+        <file>ui/icon/speedmeter.png</file>
+        <file>SpeficationCarConfiguration.qml</file>
+        <file>SpeficationCarModel.qml</file>
+    </qresource>
+</RCC>

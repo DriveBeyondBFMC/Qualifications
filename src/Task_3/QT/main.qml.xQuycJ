@@ -1,0 +1,207 @@
+import QtQuick 2.12
+import QtQuick.Window 2.12
+import QtQuick.VirtualKeyboard 2.4
+import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.0
+import QtQuick.Dialogs 1.0
+import QtQuick.Controls.Styles 1.4
+
+import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
+import QtQuick.Extras 1.4
+import QtQuick.Extras.Private 1.0
+Window {
+    id: window
+    visible: true
+    width: 640
+    height: 480
+    title: qsTr("Automobile Dashboard")
+    color: "transparent"
+
+
+    function getColor() {
+        if(speedmeter.value > 0 && speedmeter.value < 50){
+            return "white"
+        }
+        else if(speedmeter.value > 50 && speedmeter.value < 150){
+            return "red"
+        }
+    }
+    // Virtual Keyboard
+    InputPanel {
+        id: inputPanel
+        z: 99
+        x: 0
+        y: window.height
+        width: window.width
+
+        states: State {
+            name: "visible"
+            when: inputPanel.active
+            PropertyChanges {
+                target: inputPanel
+                y: window.height - inputPanel.height
+            }
+        }
+        transitions: Transition {
+            from: ""
+            to: "visible"
+            reversible: true
+            ParallelAnimation {
+                NumberAnimation {
+                    properties: "y"
+                    duration: 250
+                    easing.type: Easing.InOutQuad
+                }
+            }
+        }
+    }
+
+
+        CircularGauge{
+            id: speedmeter
+            anchors.centerIn: parent
+            value: acceleration ? maximumValue : 0
+            width: 600
+            height: 600
+            maximumValue: 150
+
+            property bool acceleration: false
+
+            style: CircularGaugeStyle{
+
+                foreground: Item {
+                    Rectangle {
+                        width: 260
+                        height: 260
+                        z: 10
+                        radius: width / 2
+                        color: "black"
+                        border.color: "white"
+                        border.width: 10
+                        anchors.centerIn: parent
+                        Rectangle{
+                            anchors.centerIn: parent
+                            width: 150
+                            height: 130
+                            radius: 10
+                            color: "#343a40"
+                            Text{
+                                y: 10
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: Math.round(speedmeter.value)
+                                color: getTextColor()
+                                font.bold: true
+                                font.pointSize: 20
+
+                                Text{
+                                    y: 70
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: "km/h"
+                                    color: "white"
+                                    font.pointSize: 10
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function degreesToRadians(degrees) {
+                    return degrees * (Math.PI / 180);
+                }
+
+                background: Canvas {
+                    onPaint: {
+                    var ctx = getContext("2d");
+                    ctx.reset();
+                    ctx.beginPath();
+                    ctx.strokeStyle = "white";
+                    ctx.lineWidth = 7;
+                    ctx.arc(outerRadius, outerRadius, outerRadius - ctx.lineWidth / 2,
+                    degreesToRadians(valueToAngle(0) - 90), degreesToRadians(valueToAngle(150) - 90));
+                    ctx.stroke();
+                    }
+                }
+                tickmark: Rectangle {
+
+                        implicitWidth: 7
+                        antialiasing: true
+                        implicitHeight: 25
+                        color: "white"
+                }
+                minorTickmark: Rectangle {
+                        visible: styleData.value < 0
+                        implicitWidth: outerRadius * 0.01
+                        antialiasing: true
+                        implicitHeight: outerRadius * 0.03
+                        color: "white"
+                }
+                tickmarkLabel:  Text {
+                        font.pixelSize: Math.max(6, outerRadius * 0.1)
+                        text: styleData.value
+                        color: "#fb8b24"
+                        antialiasing: true
+                }
+
+
+
+            }
+            Keys.onUpPressed: {
+                acceleration = true
+            }
+
+            Keys.onReleased: {
+                if(event.key === Qt.Key_Up){
+                    acceleration = false
+                    event.accepted = true
+                }
+            }
+
+            Behavior on value{
+                NumberAnimation{
+                    duration: 6000
+                }
+            }
+
+
+            Component.onCompleted: {
+                forceActiveFocus()
+                for(var i = 0; i < 150; i++){
+                    speedmeter.value = i
+                }
+
+
+            }
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
