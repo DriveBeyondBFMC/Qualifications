@@ -1,7 +1,7 @@
 # Information
 Team: DriveBeyond  
 Date: 17/03/2024  
-Description: This is a report article on the status of project qualifications.
+Description: This is a report article on the status of project qualification.
 
 # 📋 Table of Contents
 
@@ -80,8 +80,9 @@ Description: This is a report article on the status of project qualifications.
 # Task 3: Implement Vehicle Speed Display using Qt
 ## 📂 Project Directory Structure
 ```bash
-~/src/Task_3
-└── QT
+~/Qualifications/ 
+└── src/Task_3
+    ├── QT
 ```
 ## 📝 Description
    - Transmit vehicle speed data to the Raspberry Pi 4.
@@ -89,8 +90,9 @@ Description: This is a report article on the status of project qualifications.
 
 # Task 4: Enhance UWB performance for better positioning accuracy and stability.
 ```bash
-~/src/Task_4
-└── dwm1000
+~/Qualifications/ 
+└── src/Task_4
+    ├── dwm1000
 ```
 
 ## 📝 Description
@@ -100,12 +102,12 @@ Description: This is a report article on the status of project qualifications.
    
 
 # Task 5: Improved Lane Detection and Lane-Keeping Algorithm
+## 📂 Project Directory Structure
 ```bash
-~/project-status-3/src/Task_2
+~/project-Qualifications-3/src/Task_5
 ├── LaneDetection.py
 └── LaneKeeping.py
 └── config.ini
-
 ```
 ## 📝 Description
 Task 2 focuses on improving the existing lane detection and lane keeping algorithms to make the vehicle's navigation smoother on both straight and curved roads. The solution uses advanced image processing techniques and control algorithms to achieve this goal.
