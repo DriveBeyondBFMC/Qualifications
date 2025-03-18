@@ -117,8 +117,9 @@ Task 2 focuses on improving the existing lane detection and lane keeping algorit
 - File: ` LaneDetection.py` 
 - Functionality:
 The lane detection module detects lane markings from input images, identifies lane points, and computes polynomial coefficients to represent lane shapes. It supports dashed lanes and adapts to varying road conditions, such as changing lighting and curved roads.
-**Lane Keeping**
 
+
+**Lane Keeping**
 - File: ` steering_calculator.py ` 
 - Functionality:
 The lane keeping module uses the lane data from LaneDetection.py to calculate steering angles and speeds, ensuring that the vehicle stays centered in the lane. It dynamically adjusts based on road curvature and provides visualizations for steering and speed.
